@@ -1,5 +1,5 @@
 User-agent: Twitterbot
-Allow: /gist/example.html
+Allow: /gist/impact_of_cookie_bomb/example.html
 
 User-agent: *
 Disallow: /
