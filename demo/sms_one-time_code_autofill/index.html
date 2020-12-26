@@ -19,5 +19,21 @@
 <input type="text" inputmode="numeric" autocomplete="one-time-code" />
 </div>
 </div>
+<script>
+  if ('OTPCredential' in window) {
+    window.addEventListener('DOMContentLoaded', e => {
+      const input = document.querySelector('input[autocomplete="one-time-code"]');
+      if (!input) return;
+      
+      navigator.credentials.get({
+        otp: { transport:['sms'] },
+      }).then(otp => {
+        input.value = otp.code;
+      }).catch(err => {
+        console.log(err);
+      });
+    });
+  }
+</script>
 </body>
 </html>
