@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web OTP API demo</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+<style type="text/css">
+input {
+  font-size: 16px;
+}
+</style>
+</head>
+<body>
+<h1>Web OTP API demo</h1>
+<input type="text" inputmode="numeric" autocomplete="one-time-code" />
+<script>
+if ('OTPCredential' in window) {
+  window.addEventListener('DOMContentLoaded', e => {
+    const input = document.querySelector('input[autocomplete="one-time-code"]');
+
+    navigator.credentials.get({
+      otp: {transport:['sms']}
+    }).then(otp => input.value = otp.code);
+  });
+}
+</script>
+<pre><code>
+&lt;input type="text" inputmode="numeric" autocomplete="one-time-code" /&gt;
+&lt;script&gt;
+if ('OTPCredential' in window) {
+  window.addEventListener('DOMContentLoaded', e =&gt; {
+    const input = document.querySelector('input[autocomplete="one-time-code"]');
+    
+    navigator.credentials.get({
+      otp: {transport:['sms']}
+    }).then(otp =&gt; input.value = otp.code);
+  });
+}
+&lt;/script&gt;
+</code></pre>
+</body>
+</html>
