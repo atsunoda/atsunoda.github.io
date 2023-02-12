@@ -1,5 +1,0 @@
-User-agent: Twitterbot
-Allow: /demo/impact_of_cookie_bomb/example.html
-
-User-agent: *
-Disallow: /
